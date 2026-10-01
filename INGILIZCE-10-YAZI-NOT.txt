@@ -1,5 +1,0 @@
-10 English rich-content articles added under /en/blog/.
-They are English adaptations of the 10 cornerstone topics, with natural English wording rather than literal machine translation.
-Sitemap updated with English blog hub + 10 article URLs.
-Upload ZIP contents into dijimedu-site root and Replace.
-GitHub Desktop: Commit to main > Push origin.
