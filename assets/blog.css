@@ -13,3 +13,148 @@
 .authorbox{margin-top:34px;padding:18px 20px;border:1px solid #ece9f6;border-radius:17px;background:#fff}
 .authorbox b{display:block}.authorbox span{font-size:13px;color:#77738a;line-height:1.6}
 .reading{display:inline-flex;margin-left:8px;padding:4px 8px;border-radius:999px;background:#f1edff;color:#6747cf;font-size:11px;font-weight:850}
+
+/* =========================================================
+   SINIF BAZLI BLOG NAVİGASYONU
+   ========================================================= */
+.sinif-navigasyon{
+  margin:42px 0 8px;
+  padding:30px;
+  border:1px solid #e5e0f5;
+  border-radius:28px;
+  background:linear-gradient(145deg,#ffffff,#f7f4ff);
+  box-shadow:0 18px 50px rgba(43,28,123,.07);
+  scroll-margin-top:20px;
+}
+.sinif-nav-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:24px;
+}
+.sinif-nav-head h2{
+  margin:8px 0 7px;
+  font-size:clamp(25px,3.5vw,36px);
+  line-height:1.12;
+  letter-spacing:-1px;
+}
+.sinif-nav-head p{
+  margin:0;
+  color:var(--muted);
+  max-width:700px;
+  font-size:14px;
+}
+.sinif-filter-btn,
+.sinif-dropdown-toggle{
+  border:0;
+  font:inherit;
+  cursor:pointer;
+  font-weight:900;
+}
+.sinif-all-btn{
+  flex:0 0 auto;
+  padding:13px 18px;
+  border-radius:14px;
+  color:#fff;
+  background:linear-gradient(135deg,var(--p),var(--p2));
+  box-shadow:0 9px 25px rgba(117,82,246,.22);
+}
+.sinif-all-btn.active{
+  box-shadow:0 0 0 4px #7552f61c,0 9px 25px rgba(117,82,246,.22);
+}
+.sinif-menu-row{
+  display:flex;
+  gap:12px;
+  margin-top:25px;
+  flex-wrap:wrap;
+}
+.sinif-dropdown{
+  position:relative;
+}
+.sinif-dropdown-toggle{
+  min-width:175px;
+  padding:13px 17px;
+  border-radius:14px;
+  background:#fff;
+  color:var(--ink);
+  border:1px solid #e5e0f5;
+  box-shadow:0 8px 22px rgba(43,28,123,.06);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+}
+.sinif-dropdown-toggle span{
+  color:#7552f6;
+  font-size:18px;
+}
+.sinif-dropdown.open .sinif-dropdown-toggle{
+  border-color:#7552f6;
+  box-shadow:0 0 0 4px #7552f614;
+}
+.sinif-dropdown-menu{
+  display:none;
+  position:absolute;
+  z-index:30;
+  top:calc(100% + 8px);
+  left:0;
+  min-width:100%;
+  padding:7px;
+  border:1px solid #e5e0f5;
+  border-radius:15px;
+  background:#fff;
+  box-shadow:0 18px 40px rgba(28,20,83,.16);
+}
+.sinif-dropdown.open .sinif-dropdown-menu{
+  display:grid;
+}
+.sinif-dropdown-menu .sinif-filter-btn{
+  padding:10px 12px;
+  border-radius:10px;
+  text-align:left;
+  background:#fff;
+  color:var(--ink);
+}
+.sinif-dropdown-menu .sinif-filter-btn:hover,
+.sinif-dropdown-menu .sinif-filter-btn.active{
+  background:#f1edff;
+  color:#6548c8;
+}
+.sinif-selection{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-top:27px;
+  padding-top:22px;
+  border-top:1px solid #e9e5f4;
+}
+.sinif-selection strong{
+  font-size:18px;
+}
+.sinif-selection span{
+  color:#77738a;
+  font-size:13px;
+  font-weight:800;
+}
+.sinif-unit-grid{
+  padding:22px 0 5px;
+}
+.sinif-unit-grid .card{
+  margin:0;
+}
+.sinif-unit-grid .card h2{
+  font-size:19px;
+}
+.sinif-filter-card[hidden]{
+  display:none!important;
+}
+@media(max-width:700px){
+  .sinif-navigasyon{padding:22px;margin-top:28px;border-radius:22px}
+  .sinif-nav-head{display:block}
+  .sinif-all-btn{margin-top:18px}
+  .sinif-menu-row{display:grid;grid-template-columns:1fr}
+  .sinif-dropdown,.sinif-dropdown-toggle{width:100%}
+  .sinif-dropdown-menu{position:relative;top:6px;margin-bottom:8px}
+  .sinif-selection{margin-top:18px}
+}
