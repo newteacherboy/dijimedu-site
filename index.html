@@ -45,6 +45,24 @@ header{height:76px;box-shadow:0 4px 18px #18345b0a}.nav{height:76px}.logo{displa
 .park:nth-child(3){background-image:linear-gradient(0deg,#12396dcc,#0000 75%),url("/assets/park-island.webp");background-size:cover;background-position:center}
 .park:nth-child(4){background-image:linear-gradient(0deg,#143d32cc,#0000 75%),url("/assets/park-forest.webp");background-size:cover;background-position:center}
 .park:nth-child(5){background-image:linear-gradient(0deg,#28124fcc,#0000 75%),url("/assets/park-champ.webp");background-size:cover;background-position:center}
+
+/* asset collision fix */
+.hero-art{z-index:6!important;object-fit:cover!important;object-position:58% 50%!important;border-radius:0!important}
+.scene:has(.hero-art) .speech{display:none!important}
+.scene:has(.hero-art) .island,.scene:has(.hero-art) .waterfall,.scene:has(.hero-art) .castle,.scene:has(.hero-art) .trees,.scene:has(.hero-art) .bridge,.scene:has(.hero-art) .medu{display:none!important}
+.gamecard{font-size:0!important}
+.gamecard>i{display:none!important}
+.gamecard:after{font-size:13px!important;position:absolute;left:0;right:0;bottom:15px;text-align:center;color:#fff;font-weight:900;text-shadow:0 2px 5px #0008}
+.gamecard:nth-child(2):after{content:"Kelime Oyunu"}
+.gamecard:nth-child(3):after{content:"Dinleme"}
+.gamecard:nth-child(4):after{content:"Eşleştirme"}
+.gamecard:nth-child(5):after{content:"Hız Yarışı"}
+.gamecard:nth-child(6):after{content:"Düello"}
+.park .land{display:none!important}
+.park b,.park small{text-shadow:0 2px 6px #000b}
+.park b{font-size:14px!important;bottom:31px!important}
+.park small{font-size:11px!important;bottom:14px!important}
+@media(max-width:600px){.hero-art{object-position:55% 50%!important}}
 </style></head><body>
 <header><div class="wrap nav"><a class="logo" href="/"><span class="logo-med">🦜</span><span class="logo-word">Diji-Medu<small>İngilizce Macerası</small></span></a><nav class="links"><a href="#neden">Neden Diji-Medu?</a><a href="#ozellikler">Özellikler</a><a href="#parkurlar">Parkurlar</a><a href="#oyunlar">Oyunlar</a><a href="#kimler">Kimler için?</a><a href="/blog/">Blog</a><a href="/rehber/">SSS</a></nav><div class="actions"><a class="btn secondary" href="/uygulama/">Giriş Yap</a><a class="btn primary" href="/uygulama/">Ücretsiz Başla</a></div></div></header>
 <main><section class="hero" id="neden"><div class="wrap hero-grid"><div><h1>İngilizce öğrenmek<br>bir <em>maceraya</em> dönüşsün.</h1><p>Ders çalış, oyun oyna, görevleri tamamla.<br>XP kazan, seviye atla, liglerde yarış!</p><div class="hero-buttons"><a class="btn primary" href="/uygulama/">Ücretsiz Başla →</a><a class="btn secondary" href="#ozellikler">▶ Nasıl Çalışır?</a></div><div class="feature-mini" id="ozellikler"><div class="mini"><i>📖</i>Etkileşimli<br>Dersler</div><div class="mini"><i>🎮</i>Eğlenceli<br>Oyunlar</div><div class="mini"><i>🗺️</i>Parkur<br>Sistemi</div><div class="mini"><i>⭐</i>XP ve<br>Rozetler</div><div class="mini"><i>🏆</i>Ligler ve<br>Düellolar</div></div></div><div class="scene"><img class="hero-art" src="/assets/hero-medu-world.webp" alt="" onerror="this.remove()"><div class="island"></div><div class="waterfall"></div><div class="castle">🏰</div><div class="trees">🌲🌳🌲</div><div class="bridge"></div><div class="speech">Selam! Ben Medu.<br>İngilizce macerana başlamaya hazır mısın?</div><div class="medu"><div class="body"></div><div class="wing"></div><div class="mh"><div class="face"></div><div class="eye"></div><div class="beak"></div></div></div><div class="phone"><div class="phone-screen"><b>Merhaba</b><div style="font-size:9px;margin-top:5px">Bugün neler yapalım?</div><div class="task">⭐ Günün 3 Görevi<br><br>━━━━━━━━</div><div style="font-size:10px;font-weight:900;margin-top:18px">Parkurunu Keşfet</div><div class="cards2"><div class="thumb">🏰<br><br>Ana Parkur</div><div class="thumb">🌋<br><br>Macera Adası</div></div></div></div></div></div></section>
