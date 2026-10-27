@@ -51,6 +51,7 @@ def main():
     for path in sorted(glob.glob(os.path.join(ROOT, "blog", "*", "index.html"))):
         slug = os.path.basename(os.path.dirname(path))
         s = open(path, encoding="utf-8").read()
+        if 'name="robots" content="noindex,follow"' in s: continue
         h1 = re.search(r"<h1[^>]*>(.*?)</h1>", s, re.S)
         title = text(h1.group(1)) if h1 else text(re.search(r"<title>(.*?)</title>", s, re.S).group(1)).split(" | ")[0]
         desc = re.search(r'<meta name="description" content="([^"]*)"', s)
