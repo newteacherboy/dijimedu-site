@@ -2,7 +2,7 @@
    Veri: /assets/blog-index.json (tools/build-blog-index.py üretir). */
 (function () {
   "use strict";
-  var DATA_URL = "/assets/blog-index.json?v=20261020";
+  var DATA_URL = "/assets/blog-index.json?v=20261027";
   var data = null, loading = null;
 
   function load() {
@@ -99,7 +99,7 @@
     toggle.innerHTML = '<span class="bn-icon" aria-hidden="true">☰</span><span class="bn-long">Tüm yazılar</span><span class="bn-short">Yazılar</span><span class="bn-caret" aria-hidden="true">▾</span>';
     toggle.setAttribute("aria-label", "Tüm yazılar");
     toggle.addEventListener("click", function (e) { e.stopPropagation(); if (panel && !panel.hidden) close(); else open(); });
-    var links = document.querySelector(".nav .navlinks");
+    var links = document.querySelector(".nav .navlinks, header.top .nav nav");
     if (links) { links.insertBefore(toggle, links.firstChild); return; }
     // Ünite sayfalarında üst menü yok: ince bir blog çubuğu ekle.
     var bar = document.createElement("div");

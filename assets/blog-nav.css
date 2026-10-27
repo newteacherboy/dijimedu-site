@@ -51,3 +51,5 @@ html.bn-open{overflow:hidden}
 }
 @media (max-width:420px){.nav .navlinks .bn-toggle .bn-short,.nav .navlinks .bn-toggle .bn-caret{display:none}.nav .navlinks .bn-toggle .bn-icon{display:inline;font-size:18px}.nav .navlinks .bn-toggle{padding:8px 11px}}
 @media (max-width:380px){.nav .navlinks{gap:8px}.nav .navlinks .btn{padding:10px 12px;font-size:13px;white-space:nowrap}}
+
+.bn-bar{margin:0 0 22px;max-width:100%}
