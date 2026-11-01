@@ -99,3 +99,39 @@ body{background:#f4faff;color:#173768}
 .download-section{background:#fff9ef}.faq-section{background:#f5faff}
 @media(max-width:850px){.new-hero-grid{grid-template-columns:1fr;text-align:center;gap:5px;padding-top:42px}.new-hero-copy>p{margin-inline:auto}.new-hero-actions,.new-hero-chips{justify-content:center}.new-hero-art{min-height:325px}.new-hero-circle{width:275px;height:275px}.new-hero-art img{width:370px}.new-blog-cards{grid-template-columns:1fr 1fr}.new-intro-inner{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.new-hero-grid{padding:37px 0 25px;min-height:0}.new-hero h1{font-size:40px;letter-spacing:-1px}.new-hero-copy>p{font-size:14px}.new-hero-actions{flex-direction:column;align-items:stretch}.new-hero-button,.new-hero-outline{justify-content:center}.new-hero-art{min-height:275px}.new-hero-art img{width:305px}.new-hero-circle{width:240px;height:240px}.new-float{font-size:10px;padding:7px}.new-float-one{left:0}.new-float-three{right:0}.new-hero-bottom{letter-spacing:5px}.new-intro-inner{font-size:11px}.new-blog-cards{grid-template-columns:1fr}.papi-showcase{padding-top:28px}}
+
+/* Mini game arena and high-contrast visual refresh */
+.site-header .brand{display:inline-flex!important;align-items:center;gap:10px;font-weight:1000!important;font-size:clamp(25px,2.8vw,37px)!important;letter-spacing:-1.6px!important;text-shadow:0 2px 0 #dff8ff;line-height:1!important}
+.site-header .brand:before{content:"🦜";display:grid;place-items:center;width:48px;height:48px;background:linear-gradient(145deg,#fff4a4,#89e8fd);border:3px solid #0699d0;border-radius:16px;box-shadow:0 4px 0 #b4ddec;transform:rotate(-6deg);font-size:29px;letter-spacing:0}
+.site-header .brand small{display:block!important;font-size:9px!important;letter-spacing:1.25px!important;margin-top:5px!important;color:#1765a4!important;text-shadow:none}
+.new-hero h1,.new-hero h1 em{opacity:1!important;visibility:visible!important;text-shadow:0 3px 9px #06407c60}
+.new-hero-copy>p,.new-hero-chips span{color:#fff!important;opacity:1!important}
+.papi-showcase .papi-header,.papi-showcase .papi-header p,.papi-showcase .papi-header h2{color:#fff!important}
+.papi-showcase .papi-stage{color:#10335c!important}
+.papi-showcase .papi-stage-top{gap:10px;flex-wrap:wrap;font-size:13px;overflow-wrap:anywhere}
+.papi-showcase .papi-bubble{color:#163b70!important}
+.papi-showcase .papi-bubble p,.papi-showcase .papi-message{color:#1b4772!important}
+.papi-showcase .mini-game-wrap{width:100%;max-width:100%;min-width:0}
+.papi-showcase .mini-game-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-bottom:12px}
+.papi-showcase .mini-game-tabs button{border:2px solid #c1d8fa;background:#fff;color:#184277;border-radius:11px;padding:9px 5px;font-size:12px;font-weight:900;min-height:46px}
+.papi-showcase .mini-game-tabs button.on{background:#ffe04e;border-color:#f8ac21}
+.papi-showcase .mini-game-board{background:linear-gradient(145deg,#fff8d5,#e6f9ff);border:3px solid #fff;border-radius:19px;padding:14px;box-shadow:0 8px 20px #083e7250;min-width:0}
+.papi-showcase .mini-game-goal{background:linear-gradient(180deg,#90dafe 0%,#def5ff 60%,#8bdf89 61%,#3fa86b 100%)}
+.papi-showcase .mini-game-monster{background:linear-gradient(145deg,#f1ddff,#a9b3ff)}
+.papi-showcase .mini-game-tower{background:linear-gradient(145deg,#c6f6ff,#effaf8)}
+.papi-showcase .mini-game-title{font-size:20px;font-weight:1000;color:#143a75;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.papi-showcase .mini-game-title small{font-size:13px;background:white;padding:5px 9px;border-radius:16px;white-space:nowrap}
+.papi-showcase .mini-game-tip{font-weight:700;font-size:13px;color:#214675!important;margin:6px 0}
+.papi-showcase .mini-game-art{height:96px;display:grid;place-items:center;position:relative;overflow:hidden}
+.papi-showcase .mini-goal-net{font-size:80px;line-height:1}.papi-showcase .mini-ball{position:absolute;bottom:0;font-size:34px;transition:transform .35s}.papi-showcase .mini-ball.shot{transform:translateY(-46px) scale(.55)}
+.papi-showcase .mini-monsters{font-size:54px;letter-spacing:9px;animation:mini-bob 1.3s ease-in-out infinite alternate}
+.papi-showcase .mini-tower-stack{display:flex;flex-direction:column-reverse;align-items:center;line-height:.65;font-size:36px;transform:rotate(-3deg)}
+.papi-showcase .mini-game-word{font-size:25px;font-weight:1000;color:#11377a;letter-spacing:1.5px;text-align:center;margin:6px auto 10px;text-shadow:0 2px #fff}
+.papi-showcase .mini-game-targets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.papi-showcase .mini-game-target{background:#fff;border:3px solid #5e9fdd;border-radius:14px;min-height:47px;color:#153d76;font-weight:900;padding:8px;overflow-wrap:anywhere;box-shadow:0 3px #2f73ac}
+.papi-showcase .mini-game-target.correct{background:#a5f0af;border-color:#26955a}.papi-showcase .mini-game-target.wrong{background:#ffd1d1;border-color:#e04a4a}
+.papi-showcase .mini-game-feedback{font-size:13px;font-weight:900;color:#143b77;margin:11px 0;min-height:20px}
+.papi-showcase .mini-game-note{font-size:11px;line-height:1.5;color:#173d70;background:#ffffffd9;border-radius:12px;padding:8px;margin-top:10px}
+@keyframes mini-bob{to{transform:translateY(-10px)}}
+@media(max-width:600px){.site-header .brand:before{width:36px;height:36px;font-size:20px}.site-header .brand{font-size:25px!important}.papi-showcase .mini-game-tabs button{font-size:10px}.papi-showcase .mini-game-board{padding:10px}.papi-showcase .mini-game-title{font-size:16px}.papi-showcase .mini-game-word{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.papi-showcase .mini-monsters{animation:none}}
