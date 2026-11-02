@@ -68,5 +68,6 @@ const ans=e.target.closest('[data-answer]');if(ans&&!answered){answered=true;con
 if(e.target.closest('[data-reset]')){chooseUnit(unitIndex);return}
 if(e.target.closest('[data-next]')){if(step===0){step=1;questionNumber=0}else if(step<3){step++;questionNumber++}answered=false;render()}
 });
+root.querySelectorAll('[data-open-game]').forEach(b=>b.addEventListener('click',()=>{game=b.dataset.openGame;gameRound=0;gameResult='';step=3;render();document.getElementById('papi-stage')?.scrollIntoView({behavior:'smooth',block:'center'});}));
 render();
 })();
