@@ -70,4 +70,5 @@ if(e.target.closest('[data-next]')){if(step===0){step=1;questionNumber=0}else if
 });
 root.querySelectorAll('[data-open-game]').forEach(b=>b.addEventListener('click',()=>{game=b.dataset.openGame;gameRound=0;gameResult='';step=3;render();document.getElementById('papi-stage')?.scrollIntoView({behavior:'smooth',block:'center'});}));
 render();
+const phone=document.querySelector('#phone-lesson .pl-phone-display'),demo=document.getElementById('papi-stage');if(phone&&demo){phone.appendChild(demo);const lesson=document.getElementById('phone-body'),top=document.querySelector('#phone-lesson .pl-phone-top'),bar=document.querySelector('#phone-lesson .pl-progress'),heading=document.querySelector('#phone-lesson .pl-screen-title');const toggle=gameMode=>{demo.hidden=!gameMode;for(const x of [lesson,top,bar,heading])if(x)x.hidden=gameMode;};toggle(false);document.querySelectorAll('[data-open-game]').forEach(b=>b.addEventListener('click',()=>{toggle(true);phone.scrollIntoView({block:'center',behavior:'smooth'});}));document.getElementById('phone-modules')?.addEventListener('click',e=>{if(e.target.closest('[data-mode]'))toggle(false);});}
 })();
