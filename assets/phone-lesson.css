@@ -20,3 +20,17 @@
 #phone-lesson .pl-tiles span{background:#227cae}#phone-lesson .pl-feedback{color:#125788}
 #phone-lesson .pl-main{background:#ffcf44;color:#164574}
 @media(max-width:600px){#phone-lesson .pl-game-links{grid-template-columns:1fr 1fr}#phone-lesson .pl-game-links button{font-size:12px}}
+
+/* Single screen layout: a shared mobile display for games and lessons */
+.papi-showcase .papi-content{grid-template-columns:minmax(0,1fr) minmax(0,1.35fr)!important}
+#phone-lesson [hidden]{display:none!important}
+#phone-lesson .pl-phone-display>.papi-stage{border:0;border-radius:20px;min-height:350px;padding:10px;background:linear-gradient(165deg,#93dffc,#e6ffed 65%,#7fd49b)}
+#phone-lesson .pl-phone-display>.papi-stage .papi-scene{min-height:310px}
+#phone-lesson .pl-phone-display .mini-game-tabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+#phone-lesson .pl-phone-display .mini-game-tabs button{min-height:42px;padding:5px 2px;font-size:10px}
+#phone-lesson .pl-phone-display .mini-game-board{padding:10px}
+#phone-lesson .pl-phone-display .mini-game-word{font-size:24px}
+#phone-lesson .pl-phone-display .mini-game-art{height:92px}
+#phone-lesson .pl-phone-display .papi-stage-top{font-size:12px}
+#phone-lesson .pl-phone-display .papi-bubble{padding:12px}
+@media(max-width:700px){.papi-showcase .papi-content{grid-template-columns:1fr 1fr!important}}
