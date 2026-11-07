@@ -1,5 +1,6 @@
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const islands = new Map();
+const mobile = window.matchMedia("(max-width: 760px)");
 
 document.querySelectorAll(".island").forEach((island) => {
   const scene = island.querySelector(".scene");
@@ -58,7 +59,7 @@ document.querySelectorAll(".island").forEach((island) => {
     if (!explicit && visited) return;
     visited = true;
     clearTimeout(timer);
-    scene.classList.add("playing");
+    scene.classList.add("playing", "opened");
     show(0);
     end.style.visibility = "hidden";
     end.inert = true;
@@ -66,6 +67,7 @@ document.querySelectorAll(".island").forEach((island) => {
     timer = setTimeout(advance, reducedMotion.matches ? 2900 : 2400);
   }
 
+  scene.classList.add("ready");
   replay.hidden = false;
   replay.addEventListener("click", () => {
     if (timer) {
@@ -83,7 +85,7 @@ if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
       if (!entry.isIntersecting) continue;
-      if (!reducedMotion.matches) islands.get(entry.target)();
+      if (!mobile.matches && !reducedMotion.matches) islands.get(entry.target)();
       observer.unobserve(entry.target);
     }
   }, { threshold: 0.35 });
@@ -93,7 +95,8 @@ if ("IntersectionObserver" in window) {
 document.querySelectorAll(".site-header a[href^='#']").forEach((link) => {
   link.addEventListener("click", () => {
     const island = document.getElementById(link.hash.slice(1));
-    if (islands.has(island) && !reducedMotion.matches && !island.querySelector(".playing")) {
+    link.closest("details")?.removeAttribute("open");
+    if (!mobile.matches && islands.has(island) && !reducedMotion.matches && !island.querySelector(".playing")) {
       islands.get(island)(true);
     }
   });

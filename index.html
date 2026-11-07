@@ -8,8 +8,8 @@
 <link rel="icon" type="image/png" href="/assets/medu-icon-32.png"><link rel="apple-touch-icon" href="/assets/medu-icon-180.png">
 <meta property="og:type" content="website"><meta property="og:locale" content="tr_TR"><meta property="og:title" content="Diji Medu | İngilizce Öğrenmek Artık Çok Eğlenceli!"><meta property="og:description" content="Oyna, keşfet, İngilizceni geliştir. Papi ile öğrenme maceran cebinde."><meta property="og:url" content="https://dijimedu.com/"><meta property="og:image" content="https://dijimedu.com/assets/play-launch.webp"><meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Diji Medu | İngilizce Öğren","operatingSystem":"Android, Web","applicationCategory":"EducationalApplication","inLanguage":"tr","url":"https://dijimedu.com/","installUrl":"https://play.google.com/store/apps/details?id=com.dijimedu.ingilizce","description":"Oyunlar, öğrenme parkurları ve sınıf etkinlikleriyle İngilizce öğrenme uygulaması."}</script>
-<link rel="stylesheet" href="/assets/islands.css">
-<script src="/assets/islands.js" defer></script>
+<link rel="stylesheet" href="/assets/islands.css?v=2">
+<script src="/assets/islands.js?v=2" defer></script>
 </head>
 <body>
 <a class="skip" href="#icerik">İçeriğe geç</a>
@@ -19,6 +19,13 @@
     <nav aria-label="Ana menü">
       <a href="#ogrenci">Öğrenci</a><a href="#veli">Veli</a><a href="#ogretmenler">Öğretmen</a><a href="#yorumlar">Yorumlar</a><a href="/blog/">Blog</a>
     </nav>
+    <details class="mobile-menu">
+      <summary>Menü</summary>
+      <nav aria-label="Mobil menü">
+        <a href="#ogrenci">Öğrenci</a><a href="#veli">Veli</a><a href="#ogretmenler">Öğretmen</a>
+        <a href="#yorumlar">Yorumlar</a><a href="#basla">İndir</a><a href="/blog/">Blog</a>
+      </nav>
+    </details>
   </div>
 </header>
 <main id="icerik">
@@ -26,8 +33,8 @@
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <span class="label">PAPİ’NİN ÖĞRENME ADALARI</span>
-        <h1 id="baslik">İngilizce macerası <em>burada başlar!</em></h1>
-        <p>Papi ile üniteleri keşfet, kelime oyunlarıyla pratik yap. Evde birlikte tekrar et, sınıfta akıllı tahtadan oyuna katıl.</p>
+        <h1 id="baslik">Oyunlarla <em>İngilizce öğren</em></h1>
+        <p>1–8. sınıf ünitelerini Papi ile çalış, kelime oyunlarıyla pratik yap. Evde tekrar et, sınıfta akıllı tahtada oyna.</p>
         <div class="actions">
   <a class="button primary" href="https://app.dijimedu.com/ingilizce/">▶ Tarayıcıda Oyna</a>
   <a class="button" href="https://play.google.com/store/apps/details?id=com.dijimedu.ingilizce">Google Play</a>
@@ -35,12 +42,21 @@
 </div>
       </div>
       <img class="hero-art" src="/assets/islands/parkur.webp" width="629" height="369" alt="Papi, telefondaki adalı İngilizce parkurunun yanında uçuyor" fetchpriority="high">
+      <nav class="role-links" aria-label="Size uygun bölümü seçin">
+        <a href="#ogrenci"><strong>Öğrenci <span aria-hidden="true">↓</span></strong><small>Oyunlar ve dersler</small></a>
+        <a href="#veli"><strong>Veli <span aria-hidden="true">↓</span></strong><small>İlerleme takibi</small></a>
+        <a href="#ogretmenler"><strong>Öğretmen <span aria-hidden="true">↓</span></strong><small>Ödev ve sınıf oyunları</small></a>
+      </nav>
     </div>
   </section>
   <div class="ocean">
     <div class="wrap route"><section class="island" id="ogrenci" aria-labelledby="ogrenci-title">
   <div class="scene" aria-label="Öğrenciler için Papi gösterimi">
-    <div class="stage"><figure class="frame current">
+    <div class="scene-controls">
+      <span aria-hidden="true">● ● ●</span>
+      <button class="button compact" type="button" data-replay aria-controls="sahne-ogrenci" hidden>▶ Papi ile tanıtımı izle</button>
+    </div>
+    <div class="stage" id="sahne-ogrenci"><figure class="frame current">
         <img src="/assets/islands/ogrenci-1.webp" alt="" width="490" height="499" decoding="async" loading="lazy">
         <figcaption>Düello başlıyor · 3, 2, 1!</figcaption>
       </figure>
@@ -52,10 +68,6 @@
         <img src="/assets/islands/ogrenci-3.webp" alt="" width="490" height="499" decoding="async" loading="lazy">
         <figcaption>Tur tamamlandı · Kupa zamanı</figcaption>
       </figure><span class="scene-effect" hidden aria-hidden="true"></span></div>
-    <div class="scene-controls">
-      <span aria-hidden="true">● ● ●</span>
-      <button class="button compact" type="button" data-replay hidden>▶ Animasyonu oynat</button>
-    </div>
     <div class="scene-end"><div class="actions">
   <a class="button primary" href="https://app.dijimedu.com/ingilizce/">▶ Tarayıcıda Oyna</a>
   <a class="button" href="https://play.google.com/store/apps/details?id=com.dijimedu.ingilizce">Google Play</a>
@@ -71,7 +83,11 @@
   </div>
 </section><section class="island" id="veli" aria-labelledby="veli-title">
   <div class="scene" aria-label="Veliler için Papi gösterimi">
-    <div class="stage"><figure class="frame current">
+    <div class="scene-controls">
+      <span aria-hidden="true">● ● ●</span>
+      <button class="button compact" type="button" data-replay aria-controls="sahne-veli" hidden>▶ Papi ile tanıtımı izle</button>
+    </div>
+    <div class="stage" id="sahne-veli"><figure class="frame current">
         <img src="/assets/islands/veli-1.webp" alt="" width="490" height="499" decoding="async" loading="lazy">
         <figcaption>Haftalık ilerleme özeti</figcaption>
       </figure>
@@ -83,10 +99,6 @@
         <img src="/assets/islands/veli-3.webp" alt="" width="490" height="499" decoding="async" loading="lazy">
         <figcaption>Birlikte tekrar · Food and Drinks</figcaption>
       </figure></div>
-    <div class="scene-controls">
-      <span aria-hidden="true">● ● ●</span>
-      <button class="button compact" type="button" data-replay hidden>▶ Animasyonu oynat</button>
-    </div>
     <div class="scene-end"><div class="actions">
   <a class="button primary" href="https://app.dijimedu.com/ingilizce/">▶ Tarayıcıda Oyna</a>
   <a class="button" href="https://play.google.com/store/apps/details?id=com.dijimedu.ingilizce">Google Play</a>
@@ -102,7 +114,11 @@
   </div>
 </section><section class="island" id="ogretmenler" aria-labelledby="ogretmenler-title">
   <div class="scene" aria-label="Öğretmenler için Papi gösterimi">
-    <div class="stage"><figure class="frame current">
+    <div class="scene-controls">
+      <span aria-hidden="true">● ● ●</span>
+      <button class="button compact" type="button" data-replay aria-controls="sahne-ogretmenler" hidden>▶ Papi ile tanıtımı izle</button>
+    </div>
+    <div class="stage" id="sahne-ogretmenler"><figure class="frame current">
         <img src="/assets/islands/ogretmenler-1.webp" alt="" width="490" height="499" decoding="async" loading="lazy">
         <figcaption>İki öğrenci · Aynı akıllı tahta</figcaption>
       </figure>
@@ -114,10 +130,6 @@
         <img src="/assets/islands/ogretmenler-3.webp" alt="" width="490" height="499" decoding="async" loading="lazy">
         <figcaption>Sınıf raporu · Friendship</figcaption>
       </figure></div>
-    <div class="scene-controls">
-      <span aria-hidden="true">● ● ●</span>
-      <button class="button compact" type="button" data-replay hidden>▶ Animasyonu oynat</button>
-    </div>
     <div class="scene-end"><div class="actions">
   <a class="button primary" href="https://app.dijimedu.com/ingilizce/">▶ Tarayıcıda Oyna</a>
   <a class="button" href="https://play.google.com/store/apps/details?id=com.dijimedu.ingilizce">Google Play</a>
