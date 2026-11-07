@@ -36,8 +36,6 @@ h1 em { display: block; font-style: normal; text-decoration: underline var(--ora
 h2 { font-size: clamp(1.85rem, 4vw, 3rem); }
 p, li { line-height: 1.55; }
 .hero p { max-width: 39ch; font-size: clamp(1rem, 1.7vw, 1.22rem); margin-block: 20px; }
-.hero-art { width: 100%; border-radius: 40% 22% 32% 25% / 22% 27% 16% 16%; box-shadow: 0 16px 44px #005b6d27; animation: drift 6s ease-in-out infinite; }
-@keyframes drift { 50% { transform: translateY(-8px); } }
 .actions { display: flex; flex-wrap: wrap; gap: 8px; }
 .button { display: inline-flex; align-items: center; justify-content: center; border: 2px solid var(--teal); border-radius: 16px; padding: 9px 13px; color: var(--plum); background: #fffdf8; text-decoration: none; font-weight: 900; font-size: .93rem; min-height: 44px; }
 .button:hover { box-shadow: 0 3px 0 #00494542; }
@@ -57,9 +55,6 @@ p, li { line-height: 1.55; }
 .scene.playing .frame.current img { animation: scene-motion 2.5s ease-out both; }
 @keyframes scene-motion { from { transform: scale(1.075) translateY(3px); } to { transform: scale(1); } }
 .frame figcaption { position: absolute; inset: auto 0 0; padding: 24px 14px 12px; color: white; background: linear-gradient(transparent, #28142bf2); font-weight: 900; }
-.scene-controls { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 8px 12px; }
-.scene-controls span { color: var(--teal); font-size: .65rem; letter-spacing: .3em; }
-.compact { min-height: 36px; padding: 6px 10px; border-width: 1px; }
 .scene-end { padding: 0 12px 12px; }
 .scene-end .button { font-size: .82rem; }
 .island-copy { padding: clamp(17px, 4vw, 34px); }
@@ -88,7 +83,6 @@ dialog::backdrop { background: #2e152eb8; }
   .nav .brand img { width: 36px; }
   .hero-grid, .island { grid-template-columns: minmax(0, 1fr); }
   .island { padding-left: 0; gap: 10px; }
-  .island-copy { grid-row: 1; }
   .route::before, .island::before { display: none; }
   .review-strip { grid-auto-columns: minmax(218px, 82%); }
   .footer { align-items: flex-start; flex-direction: column; }
@@ -101,45 +95,82 @@ dialog::backdrop { background: #2e152eb8; }
 .scene.playing .scene-effect { animation: badge-bounce .76s ease-in-out infinite alternate; }
 @keyframes badge-bounce { to { transform: translateY(4px) rotate(4deg); } }
 
-.mobile-menu { display: none; }
-.role-links { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
-.role-links a { display: grid; align-content: start; gap: 3px; padding: 12px 14px; border: 1px solid #d0e9df; border-radius: 15px; background: #fffdf8; text-decoration: none; }
-.role-links a:hover { background: #edf9f4; }
-.role-links strong { display: flex; justify-content: space-between; gap: 4px; color: var(--plum); }
-.role-links strong span { color: var(--teal); }
-.role-links small { color: var(--ink); line-height: 1.2; }
+
+/* The approved island artwork is displayed separately from the live page content. */
+:root {
+  --cream: #fff5e4;
+  --plum: #460c40;
+  --teal: #007f78;
+  font-family: ui-rounded, "Arial Rounded MT Bold", "Trebuchet MS", system-ui, sans-serif;
+}
+.symbols { position: absolute; pointer-events: none; }
+.site-header { background: #fff6e8; }
+.brand img { border-radius: 50%; }
+.nav { min-height: 66px; }
+.nav nav a { color: var(--plum); }
+.hero { background: linear-gradient(180deg, #ffedd0 0%, #fff6e4 64%, #a1ebef 100%); }
+.hero-grid { position: relative; grid-template-columns: .72fr 1.28fr; gap: 0; padding-block: 20px 0; }
+.hero-copy { position: relative; z-index: 1; padding-block: 14px 28px; }
+.hero h1 { font-size: clamp(3rem, 6vw, 6rem); font-weight: 1000; line-height: .98; }
+.hero h1 em { text-decoration-color: #fc8a13; }
+.hero-art { width: 100%; height: 100%; min-height: 345px; object-fit: cover; object-position: center; align-self: end; mask-image: linear-gradient(90deg, transparent, black 8%); }
+.hero p { margin-block: 20px 15px; font-weight: 650; }
+.button { gap: 6px; border-radius: 999px; box-shadow: 0 3px 0 #4a25301c; }
+.primary { color: white; border-color: #00746d; background: linear-gradient(#00a99b, #006963); }
+.store-icon { width: 21px; height: 21px; flex: 0 0 auto; }
+.store-play { color: #240c27; border-color: #063b3d; background: #fffdf9; }
+.store-ios { color: white; border-color: #0863d0; background: linear-gradient(#32aefe, #0869df); }
+.gold { color: #2b1031; border-color: #db6d07; background: linear-gradient(#ffc555, #ff8509); }
+.ocean { padding-block: 0 25px; background: radial-gradient(ellipse at 74% 25%, #defbf3 0%, transparent 39%), repeating-radial-gradient(ellipse at 55% 20%, #ffffff26 0 2px, transparent 4px 26px), linear-gradient(#a1ebef, #53d5e3 38%, #8ce8e7 82%, #fff5e4); }
+.route { gap: 6px; }
+.route::before { z-index: 1; inset: 90px auto 100px 17px; border-left: 5px dashed #f18a1e; filter: drop-shadow(0 0 2px #fff); pointer-events: none; }
+.island { grid-template-columns: 1.4fr 1fr; gap: clamp(7px, 2vw, 25px); padding-left: 0; }
+.island::before { z-index: 2; left: 9px; top: 68%; }
+.scene { position: relative; background: none; border: 0; box-shadow: none; border-radius: 0; }
+.stage { aspect-ratio: 2.45; background: transparent; }
+.island-art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; mask-image: linear-gradient(90deg, transparent, black 4% 94%, transparent), linear-gradient(0deg, transparent, black 8% 93%, transparent); mask-composite: intersect; }
+.frame { inset: 4px 13px; border: 2px solid #fff9e9; border-radius: 28px; overflow: hidden; background: #007f91; }
+.frame img { object-position: center 37%; }
+.scene-end { position: relative; display: flex; justify-content: center; padding: 3px 0 7px; }
+.scene.playing .scene-end { visibility: hidden; }
+.island-copy { padding: clamp(15px, 2.2vw, 26px); border: 2px solid #fff9ed; border-radius: 27px; background: linear-gradient(135deg, #fffaf0, #fff0d8); box-shadow: 0 6px 0 #08718021, 0 12px 26px #095e691a; }
+.island-copy h2 { display: flex; gap: 10px; align-items: center; font-size: clamp(1.5rem, 3.2vw, 3.15rem); margin: 0 0 10px; font-weight: 1000; }
+.role-icon { display: inline-grid; place-items: center; width: 1.55em; height: 1.35em; border-radius: .4em; background: linear-gradient(#9652ed, #551391); color: white; font-size: .64em; flex: 0 0 auto; }
+.island-copy p { margin: 0; }
+.island-copy ul { margin-block: 8px; font-size: .9rem; font-weight: 700; }
+.island-copy li { line-height: 1.42; }
+.reviews { margin-block: 8px 17px; padding: clamp(14px, 3vw, 26px); border: 2px solid #fffaf1; border-radius: 30px; background: #fffaf2; box-shadow: 0 8px 18px #6a371010; }
+.reviews h2 { display: flex; align-items: center; gap: 9px; font-size: clamp(1.4rem, 3vw, 2.25rem); margin: 0; }
+.reviews h2 .store-icon { width: 27px; height: 27px; }
+.reviews .review-strip figure { background: #fff; box-shadow: 0 4px 8px #32122313; }
+.review-strip figcaption { display: grid; gap: 1px; color: var(--plum); }
+.stars { color: #a55a00; }
+.closing { padding-block: 8px 14px; background: linear-gradient(#fff5e4 35%, #d4f7ee 82%, #68d7d9); }
+.closing-grid { display: grid; grid-template-columns: minmax(100px, 22%) 1fr; gap: 12px; }
+.closing-grid img { width: 100%; border-radius: 0; mask-image: radial-gradient(ellipse, black 63%, transparent 75%); }
+.closing-grid p { margin-block: 4px 10px; }
+footer { background: linear-gradient(#007b7c, #00454c); }
 
 @media (max-width: 760px) {
-  .nav { position: relative; flex-direction: row; align-items: center; padding-block: 7px; }
-  .nav > nav { display: none; }
+  .nav { position: relative; display: grid; grid-template-columns: 1fr auto; column-gap: 6px; row-gap: 3px; padding-block: 5px; }
   .nav .brand { font-size: 1.1rem; }
-  .mobile-menu { display: block; }
-  .mobile-menu summary { display: flex; align-items: center; min-height: 44px; padding: 0 12px; border: 1px solid #dccbb1; border-radius: 12px; background: #fffdf8; font-weight: 800; cursor: pointer; list-style: none; }
-  .mobile-menu summary::-webkit-details-marker { display: none; }
-  .mobile-menu nav { position: absolute; inset: calc(100% + 4px) 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3px 8px; padding: 8px; background: #fffdf8; border: 1px solid #dccbb1; border-radius: 15px; box-shadow: 0 12px 22px #35162725; }
-  .mobile-menu a { display: flex; align-items: center; min-height: 44px; padding-inline: 8px; }
-  .hero-grid { gap: 14px; padding-block: 22px; }
-  .hero h1 { font-size: clamp(2.3rem, 9.5vw, 3.6rem); }
-  .hero p { margin-block: 14px; }
-  .hero-copy .actions { gap: 6px; }
-  .hero-copy .actions .button { padding-inline: 9px; font-size: .8rem; }
-  .role-links { grid-row: 2; gap: 6px; }
-  .role-links a { padding: 8px 7px; min-height: 64px; }
-  .role-links strong { font-size: .88rem; }
-  .role-links small { font-size: .74rem; }
-  .hero-art { width: 100%; max-height: 210px; object-fit: cover; border-radius: 20px; animation: none; }
-  .ocean { padding-block: 18px; }
-  .route { gap: 20px; }
-  .island { scroll-margin-top: 68px; gap: 7px; }
-  .island-copy { border-radius: 20px; }
-  .island-copy h2 { font-size: clamp(1.55rem, 6vw, 2.1rem); }
-  .island-copy p { margin-block: 10px; }
-  .stage { order: 0; }
-  .scene.ready:not(.opened) :is(.stage, .scene-end, .scene-controls span) { display: none; }
-  .scene.ready:not(.opened) { border-radius: 16px; }
-  .scene.ready:not(.opened) .scene-controls { padding: 0; }
-  .scene.ready:not(.opened) .compact { width: 100%; min-height: 44px; border-color: transparent; }
-  .reviews { scroll-margin-top: 68px; }
-  .closing-grid { display: block; }
-  .closing-grid img { display: none; }
+  .nav > nav { grid-row: 2; grid-column: 1 / -1; display: flex; justify-content: space-between; flex-wrap: nowrap; gap: 3px; }
+  .nav > nav a { display: grid; align-items: center; min-height: 36px; font-size: clamp(.71rem, 3.05vw, .95rem); }
+    .hero-grid { grid-template-columns: 1fr; padding-top: 12px; }
+  .hero-copy { padding-block: 6px 3px; }
+  .hero h1 { font-size: clamp(2.55rem, 10vw, 4rem); }
+  .hero h1 br { display: none; }
+  .hero p { margin-block: 13px 10px; }
+  .hero-art { min-height: 0; max-height: 260px; object-fit: contain; mask-image: none; }
+  .route { gap: 9px; }
+  .island { grid-template-columns: 1fr; gap: 0; scroll-margin-top: 103px; }
+  .scene-end .actions, .hero-copy .actions { gap: 5px; }
+  .scene-end .button, .hero-copy .button { padding-inline: 8px; font-size: clamp(.69rem, 3vw, .85rem); }
+  .button .store-icon { width: 16px; height: 16px; }
+  .island-copy { margin-block: 0 7px; padding: 14px; }
+  .stage { aspect-ratio: 2.24; }
+  .frame { inset-inline: 0; border-radius: 20px; }
+  .reviews { scroll-margin-top: 103px; }
+  .closing-grid { grid-template-columns: 1fr; }
+  .closing-grid img { max-width: 132px; }
 }

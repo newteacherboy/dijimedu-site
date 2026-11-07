@@ -1,107 +1,71 @@
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const islands = new Map();
-const mobile = window.matchMedia("(max-width: 760px)");
+const scenes = new Map();
 
 document.querySelectorAll(".island").forEach((island) => {
   const scene = island.querySelector(".scene");
   const frames = [...scene.querySelectorAll(".frame")];
-  const replay = scene.querySelector("[data-replay]");
+  const badge = scene.querySelector(".scene-effect");
   const end = scene.querySelector(".scene-end");
-  const markers = scene.querySelector(".scene-controls span");
   let timer;
-  let visited = false;
-  let activeFrame = 0;
-  let effectTimer;
+  let countdown;
+  let index = 0;
 
-  function show(index) {
-    activeFrame = index;
-    clearInterval(effectTimer);
-    const badge = scene.querySelector(".scene-effect");
-    if (badge) {
-      badge.hidden = !scene.classList.contains("playing");
-      const effects = ["3", "+10", "🏆"];
-      badge.textContent = effects[index];
-      if (index === 0 && !badge.hidden) {
-        let count = 3;
-        effectTimer = setInterval(() => {
-          count -= 1;
-          badge.textContent = String(count);
-          if (count === 1) clearInterval(effectTimer);
-        }, 760);
-      }
-    }
-    frames.forEach((frame, position) => frame.classList.toggle("current", position === index));
-    markers.textContent = frames.map((_, position) => position === index ? "●" : "○").join(" ");
-  }
-
-  function finish() {
+  function stop() {
     clearTimeout(timer);
-    timer = undefined;
-    scene.classList.remove("playing");
-    clearInterval(effectTimer);
-    const badge = scene.querySelector(".scene-effect");
+    clearInterval(countdown);
+    frames.forEach((frame) => frame.classList.remove("current"));
     if (badge) badge.hidden = true;
-    end.style.visibility = "";
+    scene.classList.remove("playing");
     end.inert = false;
-    replay.textContent = "↻ Yeniden oynat";
   }
 
   function advance() {
-    if (activeFrame === frames.length - 1) {
-      finish();
+    if (index === frames.length) {
+      stop();
       return;
     }
-    show(activeFrame + 1);
+    frames.forEach((frame, position) => frame.classList.toggle("current", index === position));
+    if (badge) {
+      clearInterval(countdown);
+      badge.hidden = false;
+      badge.textContent = ["3", "+10", "🏆"][index];
+      if (index === 0) {
+        let count = 3;
+        countdown = setInterval(() => {
+          badge.textContent = String(--count);
+          if (count === 1) clearInterval(countdown);
+        }, 760);
+      }
+    }
+    index += 1;
     timer = setTimeout(advance, 2400);
   }
 
-  function play(explicit = false) {
-    if (!explicit && visited) return;
-    visited = true;
-    clearTimeout(timer);
-    scene.classList.add("playing", "opened");
-    show(0);
-    end.style.visibility = "hidden";
-    end.inert = true;
-    replay.textContent = "■ Gösterimi bitir";
-    timer = setTimeout(advance, reducedMotion.matches ? 2900 : 2400);
-  }
-
-  scene.classList.add("ready");
-  replay.hidden = false;
-  replay.addEventListener("click", () => {
-    if (timer) {
-      show(frames.length - 1);
-      finish();
-    } else {
-      play(true);
-    }
+  scenes.set(scene, {
+    stop,
+    play() {
+      if (reducedMotion.matches || scene.classList.contains("playing") || end.contains(document.activeElement)) return;
+      index = 0;
+      scene.classList.add("playing");
+      end.inert = true;
+      advance();
+    },
   });
-  show(0);
-  islands.set(island, play);
 });
 
 if ("IntersectionObserver" in window) {
   const observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      if (!mobile.matches && !reducedMotion.matches) islands.get(entry.target)();
-      observer.unobserve(entry.target);
+      const scene = scenes.get(entry.target);
+      if (entry.isIntersecting) scene.play();
+      else scene.stop();
     }
-  }, { threshold: 0.35 });
-  islands.forEach((_, island) => observer.observe(island));
+  }, { threshold: 0.42 });
+  scenes.forEach((_, scene) => observer.observe(scene));
 }
-
-document.querySelectorAll(".site-header a[href^='#']").forEach((link) => {
-  link.addEventListener("click", () => {
-    const island = document.getElementById(link.hash.slice(1));
-    link.closest("details")?.removeAttribute("open");
-    if (!mobile.matches && islands.has(island) && !reducedMotion.matches && !island.querySelector(".playing")) {
-      islands.get(island)(true);
-    }
-  });
+reducedMotion.addEventListener("change", () => {
+  if (reducedMotion.matches) scenes.forEach((scene) => scene.stop());
 });
-
 const dialog = document.querySelector("#app-store");
 document.querySelectorAll("[data-ios]").forEach((link) => {
   link.addEventListener("click", (event) => {
