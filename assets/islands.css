@@ -63,7 +63,7 @@ p, li { line-height: 1.55; }
 .reviews { padding-block: 34px 38px; scroll-margin-top: 92px; }
 .reviews-top { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 13px; }
 .review-controls { display: flex; gap: 6px; }
-.review-controls button, .close { width: 44px; height: 44px; border-radius: 50%; border: 1px solid #ead8ba; background: white; color: var(--plum); font-size: 1.4rem; font-weight: 900; }
+.review-controls button { width: 44px; height: 44px; border-radius: 50%; border: 1px solid #ead8ba; background: white; color: var(--plum); font-size: 1.4rem; font-weight: 900; }
 .review-strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(245px, 30%); gap: 12px; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; padding: 5px 3px 14px; }
 .review-strip figure { scroll-snap-align: start; margin: 0; padding: 18px; background: #fffdf8; border: 1px solid #f0dfc6; border-radius: 20px; }
 .review-strip blockquote { margin: 8px 0 0; line-height: 1.45; }
@@ -74,10 +74,6 @@ p, li { line-height: 1.55; }
 .closing-grid img { width: min(25%, 230px); border-radius: 30px; }
 footer { background: #004b50; color: white; }
 .footer .brand { color: white; }
-dialog { width: min(440px, calc(100% - 32px)); border: 2px solid #ebd4aa; border-radius: 25px; padding: 28px; color: var(--ink); background: var(--cream); }
-dialog:target { display: block; }
-dialog::backdrop { background: #2e152eb8; }
-.close { float: right; }
 @media (max-width: 760px) {
   .wrap { width: calc(100% - 28px); }
   .nav .brand img { width: 36px; }

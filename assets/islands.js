@@ -66,21 +66,6 @@ if ("IntersectionObserver" in window) {
 reducedMotion.addEventListener("change", () => {
   if (reducedMotion.matches) scenes.forEach((scene) => scene.stop());
 });
-const dialog = document.querySelector("#app-store");
-document.querySelectorAll("[data-ios]").forEach((link) => {
-  link.addEventListener("click", (event) => {
-    if (typeof dialog.showModal !== "function") return;
-    event.preventDefault();
-    dialog.showModal();
-  });
-});
-dialog.addEventListener("click", (event) => {
-  if (event.target === dialog) {
-    const bounds = dialog.getBoundingClientRect();
-    if (event.clientX < bounds.left || event.clientX > bounds.right ||
-        event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
-  }
-});
 
 const reviews = document.querySelector(".reviews");
 const strip = reviews.querySelector(".review-strip");
