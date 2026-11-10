@@ -170,3 +170,19 @@ footer { background: linear-gradient(#007b7c, #00454c); }
   .closing-grid { grid-template-columns: 1fr; }
   .closing-grid img { max-width: 132px; }
 }
+
+/* Papi's friendlier educational landing experience */
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:9px 17px;border:2px solid #f2b45a;border-radius:999px;background:#fff9ec;color:#703b1d;font-size:.9rem;font-weight:900;box-shadow:0 5px 0 #efbc6840;transform:rotate(-2deg)}
+.hero h1{max-width:11ch;text-wrap:balance}
+.hero-copy{padding-block:24px 35px}
+.hero p{max-width:45ch}
+.hero .button{transition:transform .2s ease,box-shadow .2s ease}
+.hero .button:hover{transform:translateY(-3px);box-shadow:0 7px 0 #4a25301f}
+.learning-highlights{position:relative;z-index:2;padding:15px 0 26px;background:linear-gradient(180deg,#a1ebef,#b9f1ec)}
+.learning-highlights-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.learning-highlight{display:flex;align-items:center;gap:13px;min-height:112px;padding:18px;border:2px solid #fff;background:#fffaf1;border-radius:26px;box-shadow:0 7px 0 #0871801c,0 14px 25px #074f5012}
+.learning-highlight:nth-child(2){background:#fff1f6}.learning-highlight:nth-child(3){background:#fff5dd}
+.learning-highlight>span{display:grid;place-items:center;flex:0 0 62px;width:62px;height:62px;border-radius:20px;background:#d4f3fb;font-size:2rem;transform:rotate(-6deg)}
+.learning-highlight:nth-child(2)>span{background:#ffdce8;transform:rotate(5deg)}.learning-highlight:nth-child(3)>span{background:#ffdf94}
+.learning-highlight strong{display:block;color:#4b1046;font-size:1.08rem;line-height:1.2}.learning-highlight small{display:block;margin-top:5px;font-size:.83rem;line-height:1.4;color:#594b52}
+@media(max-width:760px){.hero-eyebrow{font-size:.79rem}.hero h1{max-width:none}.hero-copy{padding-block:10px 14px}.learning-highlights{padding-block:14px}.learning-highlights-grid{grid-template-columns:1fr;gap:9px}.learning-highlight{min-height:80px;padding:11px 15px;border-radius:19px}.learning-highlight>span{width:49px;height:49px;flex-basis:49px;font-size:1.55rem;border-radius:15px}}
